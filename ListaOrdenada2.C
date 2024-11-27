@@ -39,8 +39,8 @@ int tamanho(LISTA* l) {
    A priori, nao precisariamos do ponteiro para a lista, vamos utiliza-lo apenas
    porque teremos as mesmas funcoes para listas ligadas.   
 */
-int tamanhoEmBytes(LISTA* l) {
-  return sizeof(LISTA);
+int tamanhoEmBytes(LISTA* l, int max2) {
+  return sizeof(LISTA)+(sizeof(int) * max2);
 } /* tamanhoEmBytes */
 
 /* Retornar a chave do primeiro elemento da lista sequencial (caso haja) e ERRO
@@ -195,7 +195,7 @@ int main() {
   // Exibir lista vazia
   exibirLista(&lista);
   printf("Numero de elementos na lista: %i.\n", tamanho(&lista));
-  printf("Tamanho da lista (em bytes): %i.\n", tamanhoEmBytes(&lista));
+  printf("Tamanho da lista (em bytes): %i.\n", tamanhoEmBytes(&lista, max2));
 
   // Inserir elementos na lista
   reg = 50;
@@ -229,6 +229,7 @@ int main() {
   // Exibir lista após exclusões
   exibirLista(&lista);
   printf("Numero de elementos na lista: %i.\n", tamanho(&lista));
+  printf("Tamanho da lista (em bytes): %i.\n", tamanhoEmBytes(&lista, max2));
 
   // Reinicializar a lista
   reinicializarLista(&lista);
