@@ -67,6 +67,7 @@ int enesimoElem(LISTA* l, int n) {
 /* Reinicializar a estrutura */
 void reinicializarLista(LISTA* l) {
   l->nroElem = 0;
+  free(l->array);
 } /* reinicializarLista */
 
 
@@ -235,6 +236,6 @@ int main() {
   reinicializarLista(&lista);
   exibirLista(&lista);
   printf("Numero de elementos na lista: %i.\n", tamanho(&lista));
-  free(lista.array);
+
   return 0;
 }
